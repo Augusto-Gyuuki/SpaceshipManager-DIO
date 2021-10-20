@@ -11,6 +11,7 @@ namespace SpaceshipManager.Models
 
 
         public virtual Planeta Planeta { get; set; }
+        public virtual List<HistoricoViagem> ListaHistoricoViagem { get; set; }
         public virtual List<EspacoNavePiloto> ListaEspacoNavePiloto { get; set; }
     }
 }

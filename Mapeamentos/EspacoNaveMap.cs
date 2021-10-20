@@ -43,6 +43,7 @@ namespace SpaceshipManager.Mapeamentos
             builder.HasIndex(a => a.Nome).HasPrefixLength(4);
 
             builder.HasMany(a => a.ListaEspacoNavePiloto).WithOne(x => x.EspacoNave).HasForeignKey(x => x.IdEspacoNave).OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(a => a.ListaHistoricoViagem).WithOne(x => x.EspacoNave).HasForeignKey(x => x.IdEspacoNave).OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

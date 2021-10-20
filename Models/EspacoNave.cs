@@ -11,6 +11,8 @@ namespace SpaceshipManager.Models
         public float Carga { get; set; }
         public string Classe { get; set; }
 
+        public virtual List<HistoricoViagem> ListaHistoricoViagem { get; set; }
+
         public virtual List<EspacoNavePiloto> ListaEspacoNavePiloto { get; set; }
     }
 }
