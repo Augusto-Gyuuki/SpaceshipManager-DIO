@@ -12,8 +12,8 @@ namespace SpaceshipManager.Database
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.ApplyConfiguration(new HistoricoViagemMap());
             builder.ApplyConfiguration(new EspacoNaveMap());
-            builder.ApplyConfiguration(new EspacoNavePilotoMap());
             builder.ApplyConfiguration(new PlanetaMap());
             builder.ApplyConfiguration(new PilotoMap());
         }
@@ -21,6 +21,6 @@ namespace SpaceshipManager.Database
         public DbSet<Piloto> Pilotos { get; set; }
         public DbSet<Planeta> Planetas { get; set; }
         public DbSet<EspacoNave> EspacoNaves { get; set; }
-        public DbSet<EspacoNavePiloto> EspacoNavePiloto { get; set; }
+        public DbSet<HistoricoViagem> HistoricoViagens { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SpaceshipManager.Controllers
 {
-    public class EspacoNavePilotoController : Controller
+    public class HistoricoViagemController : Controller
     {
         public IActionResult Index()
         {

@@ -4,11 +4,11 @@ using SpaceshipManager.Models;
 
 namespace SpaceshipManager.Repositorios
 {
-    public class EspacoNavePilotoRepositorio : RepositorioGenerico<EspacoNavePiloto>, IEspacoNavePilotoRepositorio
+    public class HistoricoViagemRepositorio : RepositorioGenerico<HistoricoViagem>, IHistoricoViagemRepositorio
     {
         private readonly ManagerContext _ManagerContext;
 
-        public EspacoNavePilotoRepositorio(ManagerContext managerContext) : base(managerContext)
+        public HistoricoViagemRepositorio(ManagerContext managerContext) : base(managerContext)
         {
             _ManagerContext = managerContext;
         }

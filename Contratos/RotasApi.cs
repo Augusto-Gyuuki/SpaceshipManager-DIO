@@ -11,32 +11,28 @@ namespace SpaceshipManager.Contratos
 
         public static class Planetas
         {
-            public const string GetAll = Root + "/products";
-            public const string Get = Root + "/products/{productId}";
+            public const string GetAll = Root + "/planetas";
+            public const string Get = Root + "/planetas/{planetaId}";
         }
 
         public static class EspacoNave
         {
-            public const string GetAll = Base + "/products";
-            public const string Get = Base + "/products/{productId}";
+            public const string GetAll = Root + "/naves";
+            public const string Get = Root + "/naves/{naveId}";
         }
 
         public static class Piloto
         {
-            public const string GetAll = Base + "/products";
-            public const string Get = Base + "/products/{productId}";
-            public const string Create = Base + "/products";
-            public const string Update = Base + "/products/{productId}";
-            public const string Delete = Base + "/products/{productId}";
+            public const string GetAll = Root + "/pilotos";
+            public const string Get = Root + "/pilotos/{pilotoId}";
         }
 
-        public static class EspacoNavePiloto
+        public static class HistoricoViagem
         {
-            public const string GetAll = Base + "/products";
-            public const string Get = Base + "/products/{productId}";
-            public const string Create = Base + "/products";
-            public const string Update = Base + "/products/{productId}";
-            public const string Delete = Base + "/products/{productId}";
+            public const string GetAll = Root + "/historicos";
+            public const string Create = Root + "/historicos";
+            public const string Update = Root + "/historicos/{historicoId}";
+            public const string Delete = Root + "/historicos/{historicoId}";
         }
     }
 }

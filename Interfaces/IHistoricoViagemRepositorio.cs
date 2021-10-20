@@ -1,6 +1,6 @@
 ﻿namespace SpaceshipManager.Interfaces
 {
-    public interface IEspacoNavePilotoRepositorio
+    public interface IHistoricoViagemRepositorio
     {
     }
 }

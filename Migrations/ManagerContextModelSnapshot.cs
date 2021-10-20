@@ -58,7 +58,7 @@ namespace SpaceshipManager.Migrations
                     b.ToTable("espaco_naves");
                 });
 
-            modelBuilder.Entity("SpaceshipManager.Models.EspacoNavePiloto", b =>
+            modelBuilder.Entity("SpaceshipManager.Models.HistoricoViagem", b =>
                 {
                     b.Property<int>("IdPiloto")
                         .HasColumnType("int")
@@ -68,11 +68,19 @@ namespace SpaceshipManager.Migrations
                         .HasColumnType("int")
                         .HasColumnName("espaco_nave");
 
+                    b.Property<DateTime?>("DataChegada")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("data_chegada");
+
+                    b.Property<DateTime>("DataSaida")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("data_saida");
+
                     b.HasKey("IdPiloto", "IdEspacoNave");
 
                     b.HasIndex("IdEspacoNave");
 
-                    b.ToTable("espaco_nave_piloto");
+                    b.ToTable("historico_viagens");
                 });
 
             modelBuilder.Entity("SpaceshipManager.Models.Piloto", b =>
@@ -151,16 +159,16 @@ namespace SpaceshipManager.Migrations
                     b.ToTable("planetas");
                 });
 
-            modelBuilder.Entity("SpaceshipManager.Models.EspacoNavePiloto", b =>
+            modelBuilder.Entity("SpaceshipManager.Models.HistoricoViagem", b =>
                 {
                     b.HasOne("SpaceshipManager.Models.EspacoNave", "EspacoNave")
-                        .WithMany("ListaEspacoNavePiloto")
+                        .WithMany("ListaHistoricoViagem")
                         .HasForeignKey("IdEspacoNave")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SpaceshipManager.Models.Piloto", "Piloto")
-                        .WithMany("ListaEspacoNavePiloto")
+                        .WithMany("ListaHistoricoViagem")
                         .HasForeignKey("IdPiloto")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -183,12 +191,12 @@ namespace SpaceshipManager.Migrations
 
             modelBuilder.Entity("SpaceshipManager.Models.EspacoNave", b =>
                 {
-                    b.Navigation("ListaEspacoNavePiloto");
+                    b.Navigation("ListaHistoricoViagem");
                 });
 
             modelBuilder.Entity("SpaceshipManager.Models.Piloto", b =>
                 {
-                    b.Navigation("ListaEspacoNavePiloto");
+                    b.Navigation("ListaHistoricoViagem");
                 });
 
             modelBuilder.Entity("SpaceshipManager.Models.Planeta", b =>

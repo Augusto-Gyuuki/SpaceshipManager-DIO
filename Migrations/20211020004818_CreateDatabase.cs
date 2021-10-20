@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SpaceshipManager.Migrations
@@ -77,23 +78,25 @@ namespace SpaceshipManager.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "espaco_nave_piloto",
+                name: "historico_viagens",
                 columns: table => new
                 {
                     piloto = table.Column<int>(type: "int", nullable: false),
-                    espaco_nave = table.Column<int>(type: "int", nullable: false)
+                    espaco_nave = table.Column<int>(type: "int", nullable: false),
+                    data_saida = table.Column<DateTime>(type: "datetime(6)", nullable: false),
+                    data_chegada = table.Column<DateTime>(type: "datetime(6)", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_espaco_nave_piloto", x => new { x.piloto, x.espaco_nave });
+                    table.PrimaryKey("PK_historico_viagens", x => new { x.piloto, x.espaco_nave });
                     table.ForeignKey(
-                        name: "FK_espaco_nave_piloto_espaco_naves_espaco_nave",
+                        name: "FK_historico_viagens_espaco_naves_espaco_nave",
                         column: x => x.espaco_nave,
                         principalTable: "espaco_naves",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_espaco_nave_piloto_pilotos_piloto",
+                        name: "FK_historico_viagens_pilotos_piloto",
                         column: x => x.piloto,
                         principalTable: "pilotos",
                         principalColumn: "id",
@@ -102,15 +105,15 @@ namespace SpaceshipManager.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_espaco_nave_piloto_espaco_nave",
-                table: "espaco_nave_piloto",
-                column: "espaco_nave");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_espaco_naves_nome",
                 table: "espaco_naves",
                 column: "nome")
                 .Annotation("MySql:IndexPrefixLength", new[] { 4 });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_historico_viagens_espaco_nave",
+                table: "historico_viagens",
+                column: "espaco_nave");
 
             migrationBuilder.CreateIndex(
                 name: "IX_pilotos_nome",
@@ -133,7 +136,7 @@ namespace SpaceshipManager.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "espaco_nave_piloto");
+                name: "historico_viagens");
 
             migrationBuilder.DropTable(
                 name: "espaco_naves");
